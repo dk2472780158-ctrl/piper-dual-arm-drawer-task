@@ -95,8 +95,8 @@ done
 echo "=== [0/5] 产物自检（ARTIFACTS.md5）"
 cd "$LDIR" || exit 1
 if [ -f ARTIFACTS.md5 ]; then
-  if ! md5sum -c ARTIFACTS.md5 >/tmp/full_md5.txt 2>&1; then
-    echo "FAIL 有文件对不上，停在这里："; grep -v ': OK$' /tmp/full_md5.txt; exit 1
+  if ! MD5OUT=$(md5sum -c ARTIFACTS.md5 2>&1); then
+    echo "FAIL 有文件对不上，停在这里："; printf '%s\n' "$MD5OUT" | grep -v ': OK$'; exit 1
   fi
   echo "全部匹配"
 else
@@ -345,7 +345,7 @@ pose_check() {          # $1 = 写日志的路径；0 = 放行、1 = 会 abort�
 
 if [ "$MODE" = pose ]; then
   echo "=== 姿态闸门（无真机：被动读一次反馈，不使能、不移动、不发帧）"
-  POSE_LOG=/tmp/pi0_pose_check.txt
+  POSE_LOG=$(mktemp "${TMPDIR:-/tmp}/pi0_pose_check.XXXXXX")
   pose_check "$POSE_LOG"; POSE_RC=$?
   echo "    （全文在上，含官方那份 Current/Target/Delta 与逐维越界量；日志 $POSE_LOG）"
   case "$POSE_RC" in
@@ -373,7 +373,7 @@ if [ "$MODE" = motion ]; then
     echo "      想先确认：bash run_full.sh pose（被动读一次，不动）"
   elif [ "$RESETMODE" = auto ]; then
     echo "    先被动读一次位姿，看要不要归（不使能、不移动）..."
-    POSE_LOG=/tmp/pi0_pose_check.txt
+    POSE_LOG=$(mktemp "${TMPDIR:-/tmp}/pi0_pose_check.XXXXXX")
     pose_check "$POSE_LOG"; POSE_RC=$?
     if [ "$POSE_RC" = 0 ]; then
       NEED_RESET=0

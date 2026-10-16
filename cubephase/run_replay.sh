@@ -53,8 +53,8 @@ done
 echo "=== [0/5] 产物自检（ARTIFACTS.md5）"
 cd "$LDIR" || exit 1
 if [ -f ARTIFACTS.md5 ]; then
-  if ! md5sum -c ARTIFACTS.md5 >/tmp/rp_md5.txt 2>&1; then
-    echo "FAIL 有文件对不上，停在这里："; grep -v ': OK$' /tmp/rp_md5.txt; exit 1
+  if ! MD5OUT=$(md5sum -c ARTIFACTS.md5 2>&1); then
+    echo "FAIL 有文件对不上，停在这里："; printf '%s\n' "$MD5OUT" | grep -v ': OK$'; exit 1
   fi
   echo "全部匹配"
 else

@@ -8,7 +8,7 @@ a185a625d203bd75e9d0a15fa8972f88  cubephase/cube_phase_traj.npz
 ebfcbe066021f55e5f670b6d036e96fa  cubephase/make_traj.py
 40ea187d1eee2d7a507a653f81cf0810  cubephase/README.md
 11b9bf02abbdd9c2edc9460a520a943f  cubephase/replay_server.py
-769a0f5b03d433d9c8bf9f03a01846c7  cubephase/run_replay.sh
+d159447481575a1cc1f26f3a9bef6191  cubephase/run_replay.sh
 9df5d4e63437cbdcb9a48c85f82e65ed  cubephase/test_replay.py
 bd62b38a4b96251d9e0a1d3bb72ac49f  full/check_cameras.py
 213bbe090fc61501f408f6add7feb1ed  full/check_full_run.py
@@ -19,7 +19,7 @@ c29bbfce7393713a74cf5364d3548fe0  full/home_target_full.json
 33ab7c5dda49de3f5fa366162d18a795  full/make_full_traj.py
 4dd4cb1262a2cbf3fafe107d7d5a3ea1  full/README.md
 6d8c244c62070a70f2b980d5d3377901  full/replay_server.py
-70ed730f6dae80d377cf0c0178ed9309  full/run_full.sh
+e6d9d23767f752d6617a50ee3aa5f86b  full/run_full.sh
 477ee3f95cf56955dc63bfc86421c738  full/test_full.py
 3b83ef96387f14655fc854ddc3c6bd57  LICENSE
 9f1798dafd8fdf3d30d6b2e56e22e2d9  LIVE.md5
@@ -31,7 +31,7 @@ d64c9446c0b65a5229a73f1779682c52  pull/make_pull_traj.py
 6ad20e8a96256dd316df413f3c8248bb  pull/pull_traj.npz
 d8da2ec9b2d7440990bbd35895157a3b  pull/README.md
 3dd7a8671ff797d6f6a3d647a1156820  pull/replay_server.py
-69baf1ed52d4a97986574b21fb87b290  pull/run_pull.sh
+1e831618179f131c0f598f956ec8e52f  pull/run_pull.sh
 5b6055b8209c629003860d53a403b096  pull/test_pull.py
 9c34476a346d2ed9b1dec36bc641d964  README.md
 ce09c5d8c9bff19263bb50b49238370b  shared/check_pi0_link_v8.py
