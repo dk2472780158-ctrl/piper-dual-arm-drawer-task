@@ -20,12 +20,16 @@ Copyright 2026 the piper-dual-arm-drawer-task contributors
 动作序列**（`full/` / `pull/` / `cubephase/`：把 π0 该做的动作逐拍发给机器，
 服务端在本机按序列回答 `/infer`）。
 
+真机账目：`full/`（整段任务）已在真机跑通；`pull/` 与 `cubephase/` 目前只有
+离线自测与干跑。客户端本身不下成败判决 —— 真机报告里的 `result` 逐字是
+`bounded_trial_finished_task_outcome_unverified`。
+
 --------------------------------------------------------------------------------
 与录制数据的关系
 --------------------------------------------------------------------------------
 
 本仓**不含**任何演示数据集、权重、归一化统计。三段脚本都是照着机器上
-一份录制的演示（today99，episode_000041）里的动作数值逐行重放；仓里的
+一份录制的演示（today99，episode_000041）里该做的那串动作逐拍发给机器；仓里的
 
     full/full_traj.npz      pull/pull_traj.npz      cubephase/cube_phase_traj.npz
 

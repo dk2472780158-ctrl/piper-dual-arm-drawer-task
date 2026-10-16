@@ -5,7 +5,7 @@ bd62b38a4b96251d9e0a1d3bb72ac49f  check_cameras.py
 4fa37eb707376d6723fa9d83bf46571c  full_traj.npz
 c29bbfce7393713a74cf5364d3548fe0  home_target_full.json
 33ab7c5dda49de3f5fa366162d18a795  make_full_traj.py
-17e1f791e096df06dc590b5ccc9c1d05  README.md
+4dd4cb1262a2cbf3fafe107d7d5a3ea1  README.md
 6d8c244c62070a70f2b980d5d3377901  replay_server.py
 70ed730f6dae80d377cf0c0178ed9309  run_full.sh
 477ee3f95cf56955dc63bfc86421c738  test_full.py
