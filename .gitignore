@@ -1,0 +1,11 @@
+# 本机配置（机器相关路径）。改动请写 config/env.local.sh，别提交。
+config/env.local.sh
+
+# 跑起来才产生的东西
+__pycache__/
+*.pyc
+.pycache/
+*.log
+*.rrd
+*.lock
+.DS_Store

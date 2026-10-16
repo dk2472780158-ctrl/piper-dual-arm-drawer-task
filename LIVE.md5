@@ -1,0 +1,28 @@
+# shared/ 这 6 件与 3090 上「活文件」的对照。
+# 「随包 md5」是对本文件算的；「活文件 md5」是对机器上那份算的。
+# 相同 = 内容一字未动（只换了文件名）；不同 = 内容做过改名，见第二节。
+
+b7266bacb41094aca06fe72a21ba6a6a  shared/pi0_real_trial_v8.py
+#   活文件 md5 不同  d6a9bd3a225ada3f9c745ea4c8d42538
+#   活文件位置 （旧目录，目录名带旧前缀，本仓不写旧名）
+24578aa8690235e2ad733577093ff44d  shared/pi0_rollout_v8.py
+#   活文件 md5 相同  24578aa8690235e2ad733577093ff44d
+#   活文件位置 （旧目录，目录名带旧前缀，本仓不写旧名）
+ce09c5d8c9bff19263bb50b49238370b  shared/check_pi0_link_v8.py
+#   活文件 md5 相同  ce09c5d8c9bff19263bb50b49238370b
+#   活文件位置 （旧目录，目录名带旧前缀，本仓不写旧名）
+d33fde28e837b8a8b5c078c5f597c032  shared/verified_hardware.py
+#   活文件 md5 相同  d33fde28e837b8a8b5c078c5f597c032
+#   活文件位置 /home/databall/pi0_drawer_mixed_74_v1/inference/verified_hardware.py
+b963b69e76087ba83dc0cee22d64c9d9  shared/pi0_frame_snapshots.py
+#   活文件 md5 相同  b963b69e76087ba83dc0cee22d64c9d9
+#   活文件位置 /home/databall/pi0_drawer_mixed_74_v1/inference/pi0_frame_snapshots.py
+487733fe39325cc39d6fc598a4119264  shared/home_target_cubephase.json
+#   活文件 md5 不同  8fa94299c6a3c04f98905dfef27eb5c3
+#   活文件位置 （旧目录，目录名带旧前缀，本仓不写旧名）
+
+# ---- 改过名的那 2 件是怎么来的 ----
+# 内容是活文件经过一次「只改名字、不动逻辑」的逐处替换后的结果：
+# 替换表把旧前缀的旋钮名/模块名/路径名一律换成 pi0_，并逐处记下了位置。
+# 把那些替换逐条倒回去，必须与活文件**逐字节相同**（包生成时是断言 B，全绿）。
+# 所以：逻辑、阈值、护栏、闸门一个字节没动；动的只是名字。

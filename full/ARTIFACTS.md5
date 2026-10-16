@@ -1,0 +1,17 @@
+bd62b38a4b96251d9e0a1d3bb72ac49f  check_cameras.py
+213bbe090fc61501f408f6add7feb1ed  check_full_run.py
+2568e14b94cfe85aacf707a205625c6d  check_pose.py
+17282a61e3d6a9644e79756c4d6af3d7  full_traj.json
+4fa37eb707376d6723fa9d83bf46571c  full_traj.npz
+c29bbfce7393713a74cf5364d3548fe0  home_target_full.json
+33ab7c5dda49de3f5fa366162d18a795  make_full_traj.py
+17e1f791e096df06dc590b5ccc9c1d05  README.md
+6d8c244c62070a70f2b980d5d3377901  replay_server.py
+70ed730f6dae80d377cf0c0178ed9309  run_full.sh
+477ee3f95cf56955dc63bfc86421c738  test_full.py
+b7266bacb41094aca06fe72a21ba6a6a  ../shared/pi0_real_trial_v8.py
+24578aa8690235e2ad733577093ff44d  ../shared/pi0_rollout_v8.py
+ce09c5d8c9bff19263bb50b49238370b  ../shared/check_pi0_link_v8.py
+d33fde28e837b8a8b5c078c5f597c032  ../shared/verified_hardware.py
+b963b69e76087ba83dc0cee22d64c9d9  ../shared/pi0_frame_snapshots.py
+487733fe39325cc39d6fc598a4119264  ../shared/home_target_cubephase.json

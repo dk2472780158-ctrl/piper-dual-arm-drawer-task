@@ -1,0 +1,22 @@
+# 逐字节保真：本仓的 ARTIFACTS.md5 / LIVE.md5 是对**工作区字节**算的，
+# 一次 checkout 的换行翻译就会让它们整片对不上。所以默认不做任何换行转换。
+#
+# ⚠ 为什么不能用 `* text=auto eol=lf`：机器上那两份活文件
+#   （shared/pi0_rollout_v8.py、shared/check_pi0_link_v8.py）本来就是 **CRLF**
+#   （它们在机器人上是直接跑得起来的文件）。强制 LF 会让 checkout 出来的字节
+#   与 md5 清单、与机器上那份活文件都不一致 —— 那正是本仓要用 md5 证明的东西。
+#
+# 另外本机 git 全局开了 core.autocrlf=true；显式写 -text 就是为了盖掉它
+# （gitattributes 优先于 autocrlf）。
+* -text
+
+# 例外：交给 bash 执行的脚本必须是 LF —— CRLF 会让 bash 报
+# `bad interpreter: /bin/bash^M`。本仓的 .sh 都是 LF，这里只是把规则钉死。
+*.sh text eol=lf
+
+# 真正的二进制。列出来只为让 diff / 打包更清楚（-diff -merge -text）。
+*.npz binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary

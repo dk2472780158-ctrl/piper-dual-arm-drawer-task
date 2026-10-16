@@ -1,0 +1,11 @@
+{
+  "target": [-0.3001752645, 1.0068846345, -0.1011952199, -0.2567735016, -0.6680437326, 0.1242131703, 0.0610000007, 0.0112516666, 0.0117488336, -0.1706153899, -0.0267248889, 0.3287143856, 0.0129961111, 0.0003],
+  "source": "/home/databall/VLA/lerobot_piper/reset_piper_pose.py:TRAINING_START_POSE -> cubephase_20261015 (86-episode median of the tick where the cube arm leaves home; drawer arm holding the opened drawer with the jaw released)",
+  "description": "开始姿态 = 演示里方块臂刚要起动的那一拍（/home/databall/drawer_today99_v1 的 86 个训练集 episode 的中位，起动时刻中位 11.6 s / 拍 347）。用于跳过抽屉相位的专验：抽屉臂停在 1.0069（演示拉到位 1.027 附近）、爪已松开 0.061，方块臂基本在原位。",
+  "model_slot_can_order": ["can1", "can0"],
+  "units_per_arm": ["joint radians x6", "gripper metres"],
+  "derived_by": "/tmp/sp_tools/probe_cube_phase_start.py (dims 7-13 相对第 0 帧 L-inf > 0.15 rad 的第一拍)",
+  "spread_rad": {"lJ1": 0.16, "lJ2": 0.42, "lJ5": 0.58, "note": "p10-p90；中位值本身在语料里，起跑偏差不应再有 prelift 的 0.30 rad"},
+  "operator_scene_required": ["抽屉用手拉开约 11 cm（= 演示里机器人自己拉出来的量）", "蓝方块留在圆盘上", "抽屉臂的爪张开、不夹把手", "工作区里没有人手"],
+  "validation": "live home 与本位姿的 L-inf 差 1.0069 rad，几乎全在抽屉臂的 J2；方块臂差 <=0.17 rad。全部 14 维落在 pi0_rollout_v8.LOW/HIGH 之内（J3 上限 0、夹爪上限 0.07 都过）。"
+}
