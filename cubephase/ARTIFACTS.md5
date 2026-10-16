@@ -4,7 +4,7 @@ a185a625d203bd75e9d0a15fa8972f88  cube_phase_traj.npz
 ebfcbe066021f55e5f670b6d036e96fa  make_traj.py
 40ea187d1eee2d7a507a653f81cf0810  README.md
 11b9bf02abbdd9c2edc9460a520a943f  replay_server.py
-d159447481575a1cc1f26f3a9bef6191  run_replay.sh
+baf1c1fbdb34672591de292202125c85  run_replay.sh
 9df5d4e63437cbdcb9a48c85f82e65ed  test_replay.py
 b7266bacb41094aca06fe72a21ba6a6a  ../shared/pi0_real_trial_v8.py
 24578aa8690235e2ad733577093ff44d  ../shared/pi0_rollout_v8.py

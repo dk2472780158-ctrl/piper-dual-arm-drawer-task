@@ -158,6 +158,11 @@ if ss -ltn 2>/dev/null | grep -q "127.0.0.1:$PORT "; then
       ;;
     *) echo "FAIL 端口 $PORT 的监听者不是本套回放服务，不能复用："
        echo "     $LISTENER"
+       if [ -z "$OURCMD" ]; then
+         echo "     注：这个监听者在**别的用户**下跑（进程命令行读不到，多半上次是 root 起的），"
+         echo "        本用户既不能确认它、也不能直接结束它。"
+         echo "        要腾出这个端口：ss -ltnp 看清 pid 后 sudo kill <pid>，或换个端口跑。"
+       fi
        echo "     本套服务应当是：$SERVER"
        echo "     处理：换一个空端口重跑，例如 PI0_PORT=18313 bash run_replay.sh $MODE"
        exit 1 ;;
@@ -165,6 +170,17 @@ if ss -ltn 2>/dev/null | grep -q "127.0.0.1:$PORT "; then
 fi
 if [ "$NEED_START" = 1 ]; then
   [ -x "$SPY" ] || { echo "FAIL 缺解释器 $SPY"; exit 1; }
+  if [ -e "$SERVLOG" ] && [ ! -w "$SERVLOG" ]; then
+    # 上一次若是别的用户（平台以 root 跑过一次）留下的日志，本用户改不动它，
+    # 下面 `: >` 与 `>>` 都会 Permission denied，服务起不来却只报"没就绪"。
+    ALT="$SERVLOG.$(date +%Y%m%d_%H%M%S)"
+    if mv "$SERVLOG" "$ALT" 2>/dev/null; then
+      echo "旧日志 $SERVLOG 不归本用户，已挪到 $(basename "$ALT")"
+    else
+      SERVLOG="$ALT"
+      echo "旧日志 $SERVLOG 挪不动，这次写到 $SERVLOG"
+    fi
+  fi
   : > "$SERVLOG"
   nohup setsid "$SPY" -I -u "$SERVER" --port "$PORT" --traj "$TRAJ.npz" \
         --arm-deadline-calls 20 >>"$SERVLOG" 2>&1 &
