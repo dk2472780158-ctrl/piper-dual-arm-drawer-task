@@ -5,7 +5,7 @@ d64c9446c0b65a5229a73f1779682c52  make_pull_traj.py
 6ad20e8a96256dd316df413f3c8248bb  pull_traj.npz
 d8da2ec9b2d7440990bbd35895157a3b  README.md
 3dd7a8671ff797d6f6a3d647a1156820  replay_server.py
-3726ee422c0e554277f40afa9db27a91  run_pull.sh
+9063c19e71f4eedc360ffdf1fa722fb7  run_pull.sh
 5b6055b8209c629003860d53a403b096  test_pull.py
 b7266bacb41094aca06fe72a21ba6a6a  ../shared/pi0_real_trial_v8.py
 24578aa8690235e2ad733577093ff44d  ../shared/pi0_rollout_v8.py

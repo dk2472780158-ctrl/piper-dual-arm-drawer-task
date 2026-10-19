@@ -18,9 +18,11 @@ set -uo pipefail
 
 PORT=${PI0_PORT:-18312}
 LDIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
-LROOT=/home/databall/pi0_drawer_mixed_74_v1
+# 这几条是"机器上的位置"。卡片终端（平台容器）里看不到那棵树，由入口层 pi0_env.sh
+# 用下面这些 PI0_* 覆盖成容器里的真身 —— 所以没有一条必须存在。
+LROOT=${PI0_DEPLOY_ROOT:-/home/databall/pi0_drawer_mixed_74_v1}
 PY=${PI0_PY:-/home/databall/pi0_infer_3090/.venv/bin/python}
-SPY=/home/databall/miniconda3/envs/lerobot_v30/bin/python
+SPY=${PI0_REPLAY_PY:-/home/databall/miniconda3/envs/lerobot_v30/bin/python}
 TRIAL=$LDIR/../shared/pi0_real_trial_v8.py
 LINKCHK=$LDIR/../shared/check_pi0_link_v8.py
 HOME_JSON=$LDIR/../shared/home_target_cubephase.json
@@ -28,7 +30,7 @@ SERVER=$LDIR/replay_server.py
 BUILDER=$LDIR/make_traj.py
 TRAJ=$LDIR/cube_phase_traj
 SERVLOG=$LDIR/server_${PORT}.log
-LOCK=/home/databall/pico_piper_teleop/runtime/hardware.lock
+LOCK=${PI0_LOCK:-/home/databall/pico_piper_teleop/runtime/hardware.lock}
 
 # 客户端原版就是这些默认值；这里显式 export，好让下面第 [2/5] 步能核对。
 export PI0_HOME_JSON=$HOME_JSON

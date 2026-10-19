@@ -44,9 +44,11 @@ ARMTOL=${PI0_ARM_TOL:-0.10}
 LDIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
 # 本包内的共享件（与活文件逐字节相同的副本）
 CPHOME=$LDIR/../shared/home_target_cubephase.json                 # 只读它来打印"复位要跨多少"
-LROOT=/home/databall/pi0_drawer_mixed_74_v1
+# 这几条是"机器上的位置"。卡片终端（平台容器）里看不到那棵树，由入口层 pi0_env.sh
+# 用下面这些 PI0_* 覆盖成容器里的真身 —— 所以没有一条必须存在。
+LROOT=${PI0_DEPLOY_ROOT:-/home/databall/pi0_drawer_mixed_74_v1}
 PY=${PI0_PY:-/home/databall/pi0_infer_3090/.venv/bin/python}
-SPY=/home/databall/miniconda3/envs/lerobot_v30/bin/python
+SPY=${PI0_REPLAY_PY:-/home/databall/miniconda3/envs/lerobot_v30/bin/python}
 TRIAL=$LDIR/../shared/pi0_real_trial_v8.py
 LINKCHK=$LDIR/../shared/check_pi0_link_v8.py
 CAMCHK=$LDIR/check_cameras.py       # 无真机相机闸门（客户端开跑前那三道判断的复刻）
@@ -54,14 +56,14 @@ CAMSRC=$LDIR/../shared/pi0_rollout_v8.py     # 只读它解析相机表（别名
 POSECHK=$LDIR/check_pose.py         # 无真机姿态闸门（调官方只读路径 + 活客户端那把闸门函数）
 HW=$LDIR/../shared/verified_hardware.py   # 只读它拿 measured_preload 与盒子常量
 # 官方归位（上游既有件，本脚本只调用它的两个入口，不复制、不改）
-RESETSH=/home/databall/reset_piper.sh                     # 一键：立即使能 + 带两臂回训练起始位姿
-RESETDIR=/home/databall/VLA/lerobot_piper                  # 只读跑一次姿态检查，用它自己的解释器环境
+RESETSH=${PI0_RESET_SH:-/home/databall/reset_piper.sh}                     # 一键：立即使能 + 带两臂回训练起始位姿
+RESETDIR=${PI0_RESET_DIR:-/home/databall/VLA/lerobot_piper}                  # 只读跑一次姿态检查，用它自己的解释器环境
 HOME_JSON=$LDIR/home_target_full.json
 SERVER=$LDIR/replay_server.py
 BUILDER=$LDIR/make_full_traj.py
 TRAJ=$LDIR/full_traj
 SERVLOG=$LDIR/server_${PORT}.log
-LOCK=/home/databall/pico_piper_teleop/runtime/hardware.lock
+LOCK=${PI0_LOCK:-/home/databall/pico_piper_teleop/runtime/hardware.lock}
 
 # 客户端读的环境变量：名字是客户端定死的，改不了（改了它就退回默认值）。
 # 这里显式 export，好让下面第 [2/5] 步能核对运行旋钮与轨迹构建值一致。
